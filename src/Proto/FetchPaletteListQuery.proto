@@ -1,0 +1,14 @@
+﻿syntax = "proto3";
+package PixiEditor.Palettes;
+
+import "src/Proto/FilteringSettings.proto";
+
+option csharp_namespace = "PixiEditor.Extensions.CommonApi.Palettes";
+
+message FetchPaletteListQuery
+{
+  string DataSourceName = 1;
+  int32 StartIndex = 2;
+  int32 Items = 3;
+  FilteringSettings Filtering = 4;
+}
