@@ -1,0 +1,14 @@
+[package]
+name = "pixieditor_sdk"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+crate-type = ["rlib"]
+
+[profile.release]
+lto = true
+opt-level = "z"
+
+[dependencies]
+prost = "0.14.3"
