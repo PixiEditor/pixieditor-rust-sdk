@@ -5,6 +5,7 @@ use std::fs;
 use std::io::{self, Read, Seek, Write};
 use std::path::{Path, PathBuf};
 use rand::RngCore;
+use walkdir::WalkDir;
 use crate::packaging::encryptor::encrypt_resources_with_exe;
 use crate::packaging::utils::zip_dir;
 
@@ -50,10 +51,23 @@ pub fn build_pixiext() -> anyhow::Result<()> {
 
     build_wasm()?;
 
-    fs::copy(
-        "target/wasm32-wasip1/release/extension.wasm",
-        "build/extension.wasm",
-    )?;
+    let wasm = WalkDir::new("target/wasm32-wasip1/release")
+        .into_iter()
+        .filter_map(|e| e.ok())
+        .find(|e| e.path().extension().and_then(|e| e.to_str()) == Some("wasm"));
+
+    if let Some(entry) = wasm {
+        println!("{}", entry.path().display());
+        fs::copy(
+            entry.path(),
+            "build/extension.wasm",
+        )?;
+    }
+    else {
+        anyhow::bail!("Compiled wasm file not found");
+    }
+
+
 
     println!("Creating .pixiext package...");
 

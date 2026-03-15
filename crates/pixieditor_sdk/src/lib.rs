@@ -14,6 +14,9 @@ pub use localization::*;
 pub use resources::*;
 pub use windowing::*;
 pub use extension::*;
+pub use pixieditor_extension::*;
+pub use logging::*;
+pub use commands::*;
 pub use crate::ProtoAutogen::protos::*;
 pub use prost::Message;
 
