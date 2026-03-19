@@ -33,6 +33,11 @@ pub extern "C" fn get_encryption_iv() -> *const u8 {
 }
 
 #[unsafe(no_mangle)]
+pub extern "C" fn get_api_version() -> i32 {
+    2 // This ABI was made for second PixiEditor API version, change when updating
+}
+
+#[unsafe(no_mangle)]
 pub extern "C" fn _malloc(size: usize) -> *mut u8 {
     let mut buf = Vec::with_capacity(size);
     let ptr = buf.as_mut_ptr();
