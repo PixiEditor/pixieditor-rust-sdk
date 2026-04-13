@@ -6,6 +6,7 @@ mod resources;
 mod logging;
 mod windowing;
 mod extension;
+mod user;
 mod pixieditor_extension;
 mod ProtoAutogen;
 
@@ -17,6 +18,7 @@ pub use extension::*;
 pub use pixieditor_extension::*;
 pub use logging::*;
 pub use commands::*;
+pub use user::*;
 pub use crate::ProtoAutogen::protos::*;
 pub use prost::Message;
 

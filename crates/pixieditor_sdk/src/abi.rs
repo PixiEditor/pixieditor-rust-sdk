@@ -113,4 +113,16 @@ unsafe extern "C" {
 
     #[link_name = "translate_key"]
     pub fn translate_key(key: *const u8, key_len: i32) -> *const c_char;
+
+    #[link_name = "get_owned_content"]
+    pub fn api_get_owned_content() -> *const u8;
+
+    #[link_name = "is_user_logged_in"]
+    pub fn api_is_user_logged_in() -> i32;
+
+    #[link_name = "get_username"]
+    pub fn api_get_username(ptr_out: *mut *const u8, len_out: *mut i32);
+
+    #[link_name = "get_account_provider_name"]
+    pub fn api_get_account_provider_name(ptr_out: *mut *const u8, len_out: *mut i32);
 }
