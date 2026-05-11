@@ -39,5 +39,5 @@ pub struct CustomToolConfig {
     pub actions_display_configs: Vec<ActionDisplayConfig>,
 
     #[prost(string, tag = "7")]
-    pub common_tool_type: String,
+    pub common_tool_type: String
 }

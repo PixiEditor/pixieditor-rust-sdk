@@ -106,6 +106,17 @@ unsafe extern "C" {
         at_index: i32,
     );
 
+    #[link_name = "add_tool_to_toolset_with_config"]
+    pub fn add_tool_to_toolset_with_config(
+        tool_name_ptr: *const u8,
+        tool_name_len: i32,
+        toolset_name_ptr: *const u8,
+        toolset_name_len: i32,
+        at_index: i32,
+        config_json_ptr: *const u8,
+        config_json_len: i32,
+    );
+
     #[link_name = "load_extension_resource"]
     pub fn load_extension_resource(
         path_ptr: *const u8,

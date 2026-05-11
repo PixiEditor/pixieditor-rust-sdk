@@ -36,7 +36,7 @@ pub extern "C" fn get_encryption_iv() -> *const u8 {
 
 #[unsafe(no_mangle)]
 pub extern "C" fn get_api_version() -> i32 {
-    2 // This ABI was made for second PixiEditor API version, change when updating
+    3 // This ABI was made for second PixiEditor API version, change when updating
 }
 
 #[unsafe(no_mangle)]
