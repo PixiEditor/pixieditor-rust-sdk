@@ -106,6 +106,13 @@ unsafe extern "C" {
         at_index: i32,
     );
 
+    #[link_name = "register_brush_data_source"]
+    pub fn register_brush_data_source(
+        name_ptr: *const u8,
+        name_len: i32,
+        brushes_ptr: *const u8,
+        brushes_arr: i32) -> i32;
+
     #[link_name = "add_tool_to_toolset_with_config"]
     pub fn add_tool_to_toolset_with_config(
         tool_name_ptr: *const u8,
