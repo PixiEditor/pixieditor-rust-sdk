@@ -1,5 +1,5 @@
 use crate::abi::{api_get_account_provider_name, api_get_owned_content, api_get_username, api_is_user_logged_in, log_message};
-use crate::log;
+use crate::byte_utils::read_u32;
 
 pub fn is_logged_in() -> bool {
     unsafe { api_is_user_logged_in() != 0 }
@@ -69,14 +69,5 @@ pub fn get_owned_content() -> Vec<String> {
         }
 
         result
-    }
-}
-
-fn read_u32(base: *const u8, offset: &mut usize) -> u32 {
-    unsafe {
-        let ptr = base.add(*offset) as *const u32;
-        let value = ptr.read_unaligned();
-        *offset += 4;
-        u32::from_le(value)
     }
 }

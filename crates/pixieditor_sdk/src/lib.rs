@@ -9,6 +9,8 @@ mod extension;
 mod user;
 mod pixieditor_extension;
 mod ProtoAutogen;
+mod extensions;
+mod byte_utils;
 
 pub use brushes::*;
 pub use localization::*;
@@ -19,6 +21,7 @@ pub use pixieditor_extension::*;
 pub use logging::*;
 pub use commands::*;
 pub use user::*;
+pub use extensions::*;
 pub use crate::ProtoAutogen::protos::*;
 pub use prost::Message;
 
@@ -36,7 +39,7 @@ pub extern "C" fn get_encryption_iv() -> *const u8 {
 
 #[unsafe(no_mangle)]
 pub extern "C" fn get_api_version() -> i32 {
-    4 // This ABI was made for second PixiEditor API version, change when updating
+    4 // This ABI was made for fourth PixiEditor API version, change when updating
 }
 
 #[unsafe(no_mangle)]

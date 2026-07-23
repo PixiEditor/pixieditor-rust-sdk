@@ -143,4 +143,7 @@ unsafe extern "C" {
 
     #[link_name = "get_account_provider_name"]
     pub fn api_get_account_provider_name(ptr_out: *mut *const u8, len_out: *mut i32);
+
+    #[link_name = "get_installed_extensions"]
+    pub fn api_get_installed_extensions() -> *const u8;
 }
